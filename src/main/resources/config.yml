@@ -1,0 +1,5 @@
+prefix: "&8[&9Stat&8]&f"
+
+messages:
+  server-enable: "Plugin enabled!"
+  server-disable: "Plugin disabled!"
