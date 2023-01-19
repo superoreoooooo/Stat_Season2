@@ -1,47 +1,37 @@
 package win.oreo.stat_season2.stat;
 
 public class Stat {
-    private double ATK;
-    private double CRIT;
-    private double SPD;
-    private double HP;
+    private double STR;
+    private double INT;
+    private double PHY;
 
-    public Stat(double ATK, double CRIT, double SPD, double HP) {
-        this.ATK = ATK;
-        this.CRIT = CRIT;
-        this.SPD = SPD;
-        this.HP = HP;
+    public Stat(double STR, double INT, double PHY) {
+        this.STR = STR;
+        this.INT = INT;
+        this.PHY = PHY;
     }
 
-    public double getATK() {
-        return ATK;
+    public double getSTR() {
+        return STR;
     }
 
-    public void setATK(double ATK) {
-        this.ATK = ATK;
+    public void setSTR(double STR) {
+        this.STR = STR;
     }
 
-    public double getCRIT() {
-        return CRIT;
+    public double getINT() {
+        return INT;
     }
 
-    public void setCRIT(double CRIT) {
-        this.CRIT = CRIT;
+    public void setINT(double INT) {
+        this.INT = INT;
     }
 
-    public double getSPD() {
-        return SPD;
+    public double getPHY() {
+        return PHY;
     }
 
-    public void setSPD(double SPD) {
-        this.SPD = SPD;
-    }
-
-    public double getHP() {
-        return HP;
-    }
-
-    public void setHP(double HP) {
-        this.HP = HP;
+    public void setPHY(double PHY) {
+        this.PHY = PHY;
     }
 }

@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import win.oreo.stat_season2.listener.StatListener;
 import win.oreo.stat_season2.mgr.StatYml;
 import win.oreo.stat_season2.util.Color;
 
@@ -19,6 +20,8 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Bukkit.getPluginManager().registerEvents(new StatListener(), this);
+
         sendConsoleMsg(getConfigMessage("messages.server-enable"));
     }
 
@@ -46,7 +49,7 @@ public final class Main extends JavaPlugin {
         String text = config.getString(path);
         String prefix = config.getString("prefix");
         if (text == null) {
-            return ChatColor.RED +"ERROR";
+            return ChatColor.RED + "ERROR";
         }
 
         boolean open = false;
@@ -76,4 +79,11 @@ public final class Main extends JavaPlugin {
 
         return Color.format(prefix + " " + text.replace("%", ""));
     }
+
+    /**
+    무력 : 무기 공격시 기본 무기 공격력 + 스탯 공격력;
+    지력 : 확률적으로 데미지 2배
+    신체 : 기본 이속 * (1 + 퍼센트)
+    체력 : health_boost
+    **/
 }
