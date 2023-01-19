@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import win.oreo.stat_season2.command.StatCommand;
 import win.oreo.stat_season2.listener.StatListener;
 import win.oreo.stat_season2.mgr.StatYml;
 import win.oreo.stat_season2.util.Color;
@@ -21,6 +22,7 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(new StatListener(), this);
+        getCommand("stat").setExecutor(new StatCommand());
 
         sendConsoleMsg(getConfigMessage("messages.server-enable"));
     }
