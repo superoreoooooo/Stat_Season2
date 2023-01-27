@@ -91,11 +91,4 @@ public final class Main extends JavaPlugin {
 
         return Color.format(prefix + " " + text.replace("%", ""));
     }
-
-    /**
-    무력 : 무기 공격시 기본 무기 공격력 + 스탯 공격력;
-    지력 : 확률적으로 데미지 2배
-    신체 : 기본 이속 + (스탯 * 0.05)
-    체력 : health_boost
-    **/
 }

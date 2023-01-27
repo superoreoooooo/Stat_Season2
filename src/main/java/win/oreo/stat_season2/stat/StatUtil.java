@@ -1,6 +1,7 @@
 package win.oreo.stat_season2.stat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -71,16 +72,17 @@ public class StatUtil {
                 Stat stat = statMap.get(player_str);
                 Player player = Bukkit.getPlayer(player_str);
                 if (player == null) continue;
-                double speed = (0.1 + (stat.getPHY() * 0.05));
+                double speed = (0.2 + (stat.getPHY() * 0.05));
                 double hp = 20 + (stat.getSTR() * 3) + (stat.getINT()) + (stat.getPHY() * 2);
                 if (speed > 1) {
                     speed = 1f;
-                    player.sendMessage("warn! speed can't exceed 1.0! -> speed set to 1.0");
+                    player.sendMessage(ChatColor.RED + "warn! speed can't exceed 1.0! -> speed set to 1.0");
+                } else {
+                    player.sendMessage("Speed changed : " + speed);
                 }
                 player.setWalkSpeed((float) speed);
                 player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(hp);
                 player.sendMessage("HP changed : " + hp);
-                player.sendMessage("Speed changed : " + speed);
             }
         }
     }
