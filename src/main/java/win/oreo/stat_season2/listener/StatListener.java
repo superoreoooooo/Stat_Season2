@@ -20,7 +20,7 @@ public class StatListener implements Listener {
                     double c = random.nextDouble(100);
                     if (crit <= c) {
                         e.setDamage(e.getDamage() * 2);
-                        player.sendMessage("CRIT!");
+                        player.sendMessage("CRIT! Damage : " + e.getDamage());
                     }
                 }
             }

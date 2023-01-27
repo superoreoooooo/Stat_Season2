@@ -25,6 +25,7 @@ public class StatCommand implements CommandExecutor {
                             player.sendMessage("Stat : (STR:" + stat.getSTR() + " INT:" + stat.getINT() + " PHY:" + stat.getPHY() + ")");
                         } else {
                             player.sendMessage(ChatColor.RED + "Stat is null!");
+                            return false;
                         }
                     }
                 }
@@ -35,25 +36,33 @@ public class StatCommand implements CommandExecutor {
                             player.sendMessage("Stat : (STR:" + stat.getSTR() + " INT:" + stat.getINT() + " PHY:" + stat.getPHY() + ")");
                         } else {
                             player.sendMessage(ChatColor.RED + "Stat is null!");
+                            return false;
+                        }
+                    }
+                    if (args[0].equals("create")) {
+                        if (Bukkit.getOfflinePlayer(args[1]) != null) {
+                            Stat stat = new Stat(0, 0, 0);
+                            StatUtil.setStat(args[1], stat);
+                            player.sendMessage("Stat created! (Player: " + args[1] + ")");
                         }
                     }
                 }
                 case 4 -> {
                     if (args[0].equals("set")) {
-                        if (StatUtil.getStat(args[1]) != null) {
+                        if (StatUtil.getStat(args[1]) == null) {
                             Stat stat = new Stat(0, 0, 0);
                             StatUtil.setStat(args[1], stat);
                         } else {
                             Stat stat = StatUtil.getStat(args[1]);
                             switch (args[2]) {
                                 case "STR" -> {
-                                    stat.setSTR(Double.parseDouble(args[3]));
+                                    StatUtil.setSTR(args[1], Double.parseDouble(args[3]));
                                 }
                                 case "INT" -> {
-                                    stat.setINT(Double.parseDouble(args[3]));
+                                    StatUtil.setINT(args[1], Double.parseDouble(args[3]));
                                 }
                                 case "PHY" -> {
-                                    stat.setPHY(Double.parseDouble(args[3]));
+                                    StatUtil.setPHY(args[1], Double.parseDouble(args[3]));
                                 }
                             }
                         }

@@ -3,4 +3,5 @@ version: '${project.version}'
 main: win.oreo.stat_season2.Main
 commands:
   stat:
-    usage: "/stat [set | get] <Player> *<StatType> *<Amount>"
+    aliases:
+      - 스탯
